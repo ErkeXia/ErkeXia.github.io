@@ -109,6 +109,7 @@
       display:flex;
       gap: 12px;
       margin-top: 24px;
+      flex-wrap: wrap;
     }
     .btn{
       display:inline-block;
@@ -171,17 +172,7 @@
       font-family: monospace;
     }
 
-    /* Philosophy Section (The Implicit "Fit") */
-    .philosophy-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-    .philosophy-item h4 { margin: 0 0 8px; font-size: 1rem; color: var(--fg); }
-    .philosophy-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
-
     @media (max-width: 768px){
-      .philosophy-grid { grid-template-columns: 1fr; }
       h1 { font-size: 2.5rem; }
     }
 
@@ -202,6 +193,7 @@
       <h1>Erke Xia</h1>
       <p class="subtitle">
         Computer Science at <b>Carnegie Mellon University</b>.<br>
+        I engineer the infrastructure that makes AI reliable, scalable, and fast.
       </p>
 
       <div class="pill-container">
@@ -211,9 +203,9 @@
       </div>
 
       <div class="btn-row">
-        <a class="btn" href="mailto:exia@andrew.cmu.edu">Contact Me</a>
-        <a class="btn outline" href="https://github.com/yourhandle">GitHub</a>
-        <a class="btn outline" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a>
+        <a class="btn" href="mailto:exia@andrew.cmu.edu">exia@andrew.cmu.edu</a>
+        <a class="btn outline" href="https://github.com/ErkeXia">GitHub</a>
+        <a class="btn outline" href="https://www.linkedin.com/in/erke-xia-aa3279330/">LinkedIn</a>
       </div>
     </header>
 
@@ -306,45 +298,17 @@
       </div>
     </section>
 
-    <section id="philosophy">
-      <h2>Engineering Philosophy</h2>
-      <p class="subtitle" style="font-size: 1rem; margin-bottom: 30px;">
-        I don't just build models; I build the systems that make them useful, scalable, and efficient.
-      </p>
-      
-      <div class="philosophy-grid">
-        <div class="philosophy-item">
-          <h4>End-to-End Ownership</h4>
-          <p>
-            I believe engineers should own their code from design to deployment. Whether it's building the frontend for a debugger or writing the CUDA kernel for the backend, I thrive when I own the full lifecycle of a feature.
-          </p>
-        </div>
-        <div class="philosophy-item">
-          <h4>Tools > Tasks</h4>
-          <p>
-            Instead of solving a problem once, I build tools that solve it forever. My work on agentic workflows is driven by a desire to automate developer toil and enhance productivity through GenAI.
-          </p>
-        </div>
-        <div class="philosophy-item">
-          <h4>Performance Matters</h4>
-          <p>
-            In distributed systems, efficiency is feature #1. From optimizing memory throughput on GPUs to reducing inference costs by 90%, I focus on the operational metrics that drive business value.
-          </p>
-        </div>
-      </div>
-    </section>
-
     <section id="skills">
       <h2>Technical Arsenal</h2>
       <div class="card">
         <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
           <li>
             <strong>Languages:</strong><br>
-            <span style="color:var(--muted)">C, C++, Java, Python, OCaml</span>
+            <span style="color:var(--muted)">C, C++, Java, Python, OCaml, SML, SQL</span>
           </li>
           <li>
             <strong>Machine Learning:</strong><br>
-            <span style="color:var(--muted)">PyTorch, Transformers, LangChain, CUDA</span>
+            <span style="color:var(--muted)">PyTorch, Transformers, LangChain, CUDA, TensorFlow</span>
           </li>
           <li>
             <strong>Infrastructure:</strong><br>
