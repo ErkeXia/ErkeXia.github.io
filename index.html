@@ -3,103 +3,438 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Your Name</title>
-  <meta name="description" content="One-page portfolio: projects, resume, contact." />
+
+  <title>Erke Xia | Software Engineer (ML Systems + Distributed Systems)</title>
+  <meta name="description" content="Erke Xia — CMU CS. Built production GenAI developer tooling, GPU-accelerated solvers, and efficient LLM reasoning frameworks. Seeking SDE Internship (Summer 2026)." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Erke Xia | Software Engineer (ML Systems + Distributed Systems)" />
+  <meta property="og:description" content="Built production GenAI developer tooling, GPU-accelerated solvers, and efficient LLM reasoning frameworks. Seeking SDE Internship (Summer 2026)." />
+  <meta property="og:type" content="website" />
+
   <style>
-    :root { color-scheme: light dark; }
-    body { margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px; }
-    header { display: flex; gap: 16px; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
-    nav a { margin-right: 14px; text-decoration: none; opacity: .85; }
-    nav a:hover { opacity: 1; text-decoration: underline; }
-    h1 { font-size: 40px; line-height: 1.1; margin: 0 0 8px; }
-    .tagline { margin: 0 0 18px; opacity: .85; }
-    .btns a {
-      display: inline-block; padding: 10px 14px; border: 1px solid currentColor;
-      border-radius: 10px; text-decoration: none; margin-right: 10px; margin-top: 8px;
+    :root{
+      color-scheme: light dark;
+      --fg: #111;
+      --muted: rgba(0,0,0,.7);
+      --border: rgba(0,0,0,.15);
+      --card: rgba(0,0,0,.03);
+      --link: #0b57d0;
+      --max: 960px;
+      --r: 16px;
     }
-    section { margin-top: 44px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-    .card { border: 1px solid rgba(127,127,127,.35); border-radius: 14px; padding: 16px; }
-    .card h3 { margin: 0 0 6px; }
-    .meta { font-size: 14px; opacity: .8; margin: 6px 0 0; }
-    footer { margin-top: 52px; opacity: .75; font-size: 14px; }
-    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: .95em; }
+    @media (prefers-color-scheme: dark){
+      :root{
+        --fg: #eee;
+        --muted: rgba(255,255,255,.75);
+        --border: rgba(255,255,255,.18);
+        --card: rgba(255,255,255,.05);
+        --link: #7ab4ff;
+      }
+    }
+    *{ box-sizing: border-box; }
+    body{
+      margin:0;
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      color: var(--fg);
+      background: transparent;
+    }
+    a{ color: var(--link); text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 52px 18px;
+    }
+    .topbar{
+      display:flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+    .nav a{
+      margin-right: 14px;
+      opacity: .9;
+      white-space: nowrap;
+    }
+    .nav a:last-child{ margin-right:0; }
+    h1{
+      font-size: 44px;
+      line-height: 1.05;
+      margin: 0 0 8px;
+      letter-spacing: -0.5px;
+    }
+    .subtitle{
+      margin: 0 0 12px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .pillrow{
+      display:flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 14px 0 6px;
+    }
+    .pill{
+      display:inline-block;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      font-size: 14px;
+      color: var(--fg);
+    }
+    .cta{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 0;
+    }
+    .btn{
+      display:inline-block;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: transparent;
+      font-weight: 600;
+    }
+    .btn.primary{
+      border-color: transparent;
+      background: var(--card);
+    }
+    section{
+      margin-top: 44px;
+      padding-top: 4px;
+    }
+    h2{
+      font-size: 22px;
+      margin: 0 0 12px;
+      letter-spacing: -0.2px;
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 14px;
+    }
+    .card{
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      padding: 16px;
+      background: var(--card);
+    }
+    .card h3{
+      margin: 0 0 6px;
+      font-size: 18px;
+    }
+    .small{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    ul{
+      margin: 10px 0 0 18px;
+      padding: 0;
+    }
+    li{ margin: 6px 0; }
+    .tags{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag{
+      font-size: 13px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--fg);
+    }
+    .twoCol{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+    @media (max-width: 860px){
+      .twoCol{ grid-template-columns: 1fr; }
+    }
+    footer{
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .skip{
+      position:absolute;
+      left:-999px;
+      top:auto;
+      width:1px;
+      height:1px;
+      overflow:hidden;
+    }
+    .skip:focus{
+      position:static;
+      width:auto;
+      height:auto;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      border-radius: 10px;
+      display:inline-block;
+      margin-bottom: 14px;
+      background: var(--card);
+    }
   </style>
 </head>
+
 <body>
   <div class="wrap">
-    <header>
-      <div>
-        <h1>Your Name</h1>
-        <p class="tagline">CS @ CMU · ML + Systems · Building ______</p>
-      </div>
-      <nav>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </header>
+    <a class="skip" href="#content">Skip to content</a>
 
-    <div class="btns">
-      <a href="resume.pdf">Resume</a>
-      <a href="https://github.com/yourhandle">GitHub</a>
-      <a href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a>
+    <div class="topbar">
+      <div class="nav" aria-label="Site navigation">
+        <a href="#work">Selected Work</a>
+        <a href="#fit">Fit</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
 
-    <section id="projects">
-      <h2>Projects</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Project Title</h3>
-          <p>1–2 sentences: what problem, what you built, why it matters.</p>
-          <p class="meta"><b>Tech:</b> Python, PyTorch, AWS</p>
-          <p class="meta">
-            <a href="https://github.com/yourhandle/project">Code</a> ·
-            <a href="https://demo-link.com">Demo</a>
-          </p>
+    <main id="content">
+      <header>
+        <h1>Erke Xia</h1>
+        <p class="subtitle">
+          CMU School of Computer Science — B.S. Computer Science (Machine Learning + Computer Systems), Aug 2022–May 2026.
+          Accepted into CMU 5th-Year M.S. in CS (Expected May 2027).
+        </p>
+        <p class="subtitle">
+          I build production-grade systems at the intersection of <b>distributed software</b>, <b>ML infrastructure</b>, and
+          <b>GenAI developer tooling</b> — with a bias toward measurable impact, reliability, and ownership.
+        </p>
+
+        <div class="pillrow" aria-label="Highlights">
+          <span class="pill">Seeking: SDE Internship (Summer 2026)</span>
+          <span class="pill">Focus: Distributed Systems · ML Systems · GenAI Tools</span>
+          <span class="pill">Location: Pittsburgh, PA</span>
         </div>
 
-        <div class="card">
-          <h3>Project Title</h3>
-          <p>Include a result if you can (speedup, accuracy, users, etc.).</p>
-          <p class="meta"><b>Tech:</b> OCaml, Compiler IR, SSA</p>
-          <p class="meta">
-            <a href="https://github.com/yourhandle/project2">Code</a>
-          </p>
+        <div class="cta" aria-label="Primary links">
+          <a class="btn primary" href="mailto:exia@andrew.cmu.edu">Email</a>
+          <a class="btn" href="https://github.com/yourhandle">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a>
+        </div>
+      </header>
+
+      <section id="work">
+        <h2>Selected Work</h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Production GenAI “AI Programmer” System (WeBank)</h3>
+            <p class="small">
+              Software Engineering Intern · Summer 2024 · Distributed multi-agent code automation
+            </p>
+            <ul>
+              <li>
+                Contributed to a full-lifecycle AI programmer system: enhanced agent modules with a ReAct-style iterative loop and
+                autonomous decision-making in a multi-agent architecture.
+              </li>
+              <li>
+                Owned execution and tooling layers to safely apply LLM-generated code patches to file systems; shipped modular,
+                well-documented components that became integral to the production system.
+              </li>
+              <li>
+                Built a React front-end to visualize multi-agent reasoning steps in real time, enabling engineers to trace interactions,
+                debug behavior, and guide automated fixing.
+              </li>
+              <li>
+                Impact: autonomously fixed 100+ defects with an overall code-review pass rate &gt; 75%.
+              </li>
+            </ul>
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag">LLM Agents</span>
+              <span class="tag">Distributed Systems</span>
+              <span class="tag">Python</span>
+              <span class="tag">React</span>
+              <span class="tag">Linux</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>GPU-Accelerated Multi-Agent Path Finding (CUDA/C++)</h3>
+            <p class="small">
+              High-performance Conflict-Based Search (CBS) on AWS EC2 (NVIDIA A10G)
+            </p>
+            <ul>
+              <li>
+                Engineered a high-performance CBS solver by replacing serial shortest-path search with a custom GPU-resident,
+                level-synchronous BFS.
+              </li>
+              <li>
+                Optimized memory throughput using coalesced global memory access and atomic operations for frontier management.
+              </li>
+              <li>
+                Identified parallel workloads across agent initialization and low-level replanning.
+              </li>
+              <li>
+                Result: up to <b>40× speedup</b> on large-scale benchmarks while preserving solution optimality.
+              </li>
+            </ul>
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag">CUDA</span>
+              <span class="tag">C++</span>
+              <span class="tag">Parallel Algorithms</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Performance</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Efficient LLM Reasoning via Explorer–Verifier Search (CMU Research)</h3>
+            <p class="small">
+              Undergraduate Researcher · Search-based Planning Laboratory · May 2025–Present
+            </p>
+            <ul>
+              <li>
+                Developed a reasoning framework inspired by speculative decoding and lazy search:
+                a small LLM explores candidate reasoning paths and a larger LLM verifies them for efficiency and accuracy.
+              </li>
+              <li>
+                Experimented with model combinations (Llama, Mistral, Gemma) and collaboration protocols; applied BFS/DFS/A* for
+                structured exploration.
+              </li>
+              <li>
+                Achieved performance competitive with GPT-4 Tree-of-Thoughts at ~<b>one-tenth the cost</b> on reasoning tasks
+                (e.g., GSM8K).
+              </li>
+              <li>
+                Implemented and benchmarked token-level speculative decoding to accelerate generation across model pairs.
+              </li>
+            </ul>
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag">LLMs</span>
+              <span class="tag">Search</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Speculative Decoding</span>
+            </div>
+          </article>
+
+          <article class="card">
+            <h3>Visual Reasoning on NLVR2 (CLIP + MoLE)</h3>
+            <p class="small">
+              Vision–Language modeling with consistency-focused evaluation
+            </p>
+            <ul>
+              <li>
+                Built a visual reasoning framework with CLIP-guided hard negative mining to mitigate spurious correlations.
+              </li>
+              <li>
+                Designed a Mixture-of-LoRA-Experts (MoLE) architecture routing samples to specialized reasoning experts
+                (spatial, counting, attribute).
+              </li>
+              <li>
+                Improved logical consistency to <b>0.77</b> and asymmetric consistency to <b>0.87</b>;
+                achieved <b>71.6%</b> aggregate accuracy among supervised baselines.
+              </li>
+            </ul>
+            <div class="tags" aria-label="Tech tags">
+              <span class="tag">VLM</span>
+              <span class="tag">CLIP</span>
+              <span class="tag">LoRA</span>
+              <span class="tag">Model Routing</span>
+            </div>
+          </article>
         </div>
 
+        <p class="small" style="margin-top:12px;">
+          Note: some implementation details may be summarized or anonymized.
+        </p>
+      </section>
+
+      <section id="fit">
+        <h2>Why I’m a strong fit for Amazon SDE Intern (Summer 2026)</h2>
+
+        <div class="twoCol">
+          <div class="card">
+            <h3>What I’m looking for</h3>
+            <p class="small">
+              A team where interns can own real software end-to-end — design, implement, test, deploy, and operate — in an environment
+              that values customer impact, operational excellence, and fast iteration.
+            </p>
+            <ul>
+              <li>Scalable services and distributed systems</li>
+              <li>GenAI/AI-powered developer productivity tooling</li>
+              <li>Strong engineering fundamentals: code quality, debugging, CI/CD</li>
+              <li>Ambiguous problems with real users and measurable outcomes</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>What I bring</h3>
+            <ul>
+              <li>
+                <b>Ownership mindset:</b> shipped core execution/tooling in a production multi-agent system and built debugging UX to
+                shorten iteration loops.
+              </li>
+              <li>
+                <b>Systems rigor:</b> performance engineering on GPUs (40× speedup) and comfort with low-level bottlenecks.
+              </li>
+              <li>
+                <b>Practical ML systems:</b> efficient LLM reasoning + speculative decoding with careful benchmarking and protocols.
+              </li>
+              <li>
+                <b>Collaboration:</b> experience building tools that other engineers rely on (documentation, modularity, reviewability).
+              </li>
+            </ul>
+            <p class="small">
+              These map directly to Amazon’s intern expectations around scalable distributed solutions, GenAI tools, and owning the full
+              lifecycle of code in a large engineering organization.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2>Skills</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Languages</h3>
+            <p class="small">C, C++, Java, Python, JavaScript/TypeScript, SML, OCaml, R</p>
+          </div>
+          <div class="card">
+            <h3>ML / Data</h3>
+            <p class="small">PyTorch, TensorFlow, Spark/PySpark, SQL</p>
+          </div>
+          <div class="card">
+            <h3>Systems / Tools</h3>
+            <p class="small">Linux, Git, Docker, CUDA, TCP/Networking, React, AWS</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
         <div class="card">
-          <h3>Project Title</h3>
-          <p>One strong line: “Built X that does Y; improved Z by 30%.”</p>
-          <p class="meta"><b>Tech:</b> TypeScript, Node.js</p>
-          <p class="meta">
-            <a href="https://github.com/yourhandle/project3">Code</a>
+          <p style="margin:0;">
+            Email: <a href="mailto:exia@andrew.cmu.edu">exia@andrew.cmu.edu</a><br/>
+            GitHub: <a href="https://github.com/yourhandle">github.com/yourhandle</a><br/>
+            LinkedIn: <a href="https://www.linkedin.com/in/yourhandle/">linkedin.com/in/yourhandle</a>
           </p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="about">
-      <h2>About</h2>
-      <p>
-        3–5 lines. What you’re into, what you’re looking for (internship/research),
-        and what kinds of problems you like. Keep it concrete.
-      </p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:you@email.com">you@email.com</a><br/>
-        (Optional) Calendly: <a href="https://calendly.com/yourhandle">calendly.com/yourhandle</a>
-      </p>
-    </section>
-
-    <footer>
-      <p>© <span id="y"></span> Your Name · Built with GitHub Pages</p>
-    </footer>
+      <footer>
+        <p style="margin:0;">
+          © <span id="y"></span> Erke Xia · Built with GitHub Pages
+        </p>
+      </footer>
+    </main>
   </div>
-  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
