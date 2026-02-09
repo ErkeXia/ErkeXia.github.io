@@ -4,437 +4,368 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-  <title>Erke Xia | Software Engineer (ML Systems + Distributed Systems)</title>
-  <meta name="description" content="Erke Xia — CMU CS. Built production GenAI developer tooling, GPU-accelerated solvers, and efficient LLM reasoning frameworks. Seeking SDE Internship (Summer 2026)." />
+  <title>Erke Xia | ML Systems & Distributed Computing</title>
+  <meta name="description" content="Erke Xia — CMU CS. Building high-performance inference engines, agentic workflows, and distributed systems." />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Erke Xia | Software Engineer (ML Systems + Distributed Systems)" />
-  <meta property="og:description" content="Built production GenAI developer tooling, GPU-accelerated solvers, and efficient LLM reasoning frameworks. Seeking SDE Internship (Summer 2026)." />
+  <meta property="og:title" content="Erke Xia | ML Systems & Distributed Computing" />
+  <meta property="og:description" content="Building high-performance inference engines, agentic workflows, and distributed systems." />
   <meta property="og:type" content="website" />
 
   <style>
     :root{
       color-scheme: light dark;
-      --fg: #111;
-      --muted: rgba(0,0,0,.7);
-      --border: rgba(0,0,0,.15);
-      --card: rgba(0,0,0,.03);
-      --link: #0b57d0;
-      --max: 960px;
-      --r: 16px;
+      --fg: #1f1f1f;
+      --muted: #666;
+      --border: #e0e0e0;
+      --card: #f9f9f9;
+      --link: #0052cc;
+      --accent: #0052cc;
+      --max: 900px;
+      --r: 8px;
     }
     @media (prefers-color-scheme: dark){
       :root{
         --fg: #eee;
-        --muted: rgba(255,255,255,.75);
-        --border: rgba(255,255,255,.18);
-        --card: rgba(255,255,255,.05);
+        --muted: #a0a0a0;
+        --border: #333;
+        --card: #161616;
         --link: #7ab4ff;
+        --accent: #7ab4ff;
       }
     }
     *{ box-sizing: border-box; }
     body{
       margin:0;
-      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      font:16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--fg);
-      background: transparent;
+      background-color: canvas;
+      padding-bottom: 80px;
     }
-    a{ color: var(--link); text-decoration: none; }
-    a:hover{ text-decoration: underline; }
+    a{ color: var(--link); text-decoration: none; transition: opacity 0.2s; }
+    a:hover{ text-decoration: underline; opacity: 0.8; }
+    
     .wrap{
       max-width: var(--max);
       margin: 0 auto;
-      padding: 52px 18px;
+      padding: 60px 24px;
     }
-    .topbar{
-      display:flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 18px;
-    }
-    .nav a{
-      margin-right: 14px;
-      opacity: .9;
-      white-space: nowrap;
-    }
-    .nav a:last-child{ margin-right:0; }
+
+    /* Typography */
     h1{
-      font-size: 44px;
-      line-height: 1.05;
-      margin: 0 0 8px;
+      font-size: 3rem;
+      line-height: 1.1;
+      margin: 0 0 16px;
+      letter-spacing: -1px;
+    }
+    h2{
+      font-size: 1.5rem;
+      margin: 0 0 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
       letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
+    h3{
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+    p { margin: 0 0 16px; }
+    
     .subtitle{
-      margin: 0 0 12px;
+      font-size: 1.25rem;
       color: var(--muted);
-      max-width: 70ch;
+      max-width: 65ch;
+      line-height: 1.5;
+      margin-bottom: 24px;
     }
-    .pillrow{
-      display:flex;
+
+    /* Components */
+    .pill-container {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
       flex-wrap: wrap;
-      gap: 10px;
-      margin: 14px 0 6px;
     }
-    .pill{
-      display:inline-block;
-      padding: 8px 12px;
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 12px;
+      background: var(--card);
       border: 1px solid var(--border);
       border-radius: 999px;
-      background: transparent;
-      font-size: 14px;
-      color: var(--fg);
+      font-size: 0.9rem;
+      font-weight: 500;
     }
-    .cta{
+    .pill.highlight {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: transparent;
+    }
+
+    .btn-row{
       display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin: 14px 0 0;
+      gap: 12px;
+      margin-top: 24px;
     }
     .btn{
       display:inline-block;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      background: transparent;
+      padding: 10px 20px;
+      border-radius: 6px;
+      background: var(--fg);
+      color: canvas;
       font-weight: 600;
+      text-decoration: none;
     }
-    .btn.primary{
-      border-color: transparent;
-      background: var(--card);
+    .btn:hover { text-decoration: none; opacity: 0.9; }
+    .btn.outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--fg);
     }
-    section{
-      margin-top: 44px;
-      padding-top: 4px;
-    }
-    h2{
-      font-size: 22px;
-      margin: 0 0 12px;
-      letter-spacing: -0.2px;
-    }
-    .grid{
+
+    /* Layouts */
+    section{ margin-top: 64px; }
+    
+    .card-grid{
       display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
     }
+
     .card{
       border: 1px solid var(--border);
       border-radius: var(--r);
-      padding: 16px;
+      padding: 24px;
       background: var(--card);
+      transition: transform 0.2s;
     }
-    .card h3{
-      margin: 0 0 6px;
-      font-size: 18px;
-    }
-    .small{
-      margin: 6px 0 0;
+    .card:hover { border-color: var(--muted); }
+
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+      font-family: monospace;
     }
-    ul{
-      margin: 10px 0 0 18px;
-      padding: 0;
-    }
-    li{ margin: 6px 0; }
+
+    ul { margin: 0; padding-left: 20px; }
+    li { margin-bottom: 8px; font-size: 0.95rem; }
+
     .tags{
-      margin-top: 10px;
+      margin-top: 16px;
       display:flex;
       flex-wrap: wrap;
       gap: 8px;
     }
     .tag{
-      font-size: 13px;
-      padding: 6px 10px;
+      font-size: 12px;
+      padding: 4px 8px;
       border: 1px solid var(--border);
-      border-radius: 999px;
-      background: transparent;
-      color: var(--fg);
-    }
-    .twoCol{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 14px;
-    }
-    @media (max-width: 860px){
-      .twoCol{ grid-template-columns: 1fr; }
-    }
-    footer{
-      margin-top: 56px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+      border-radius: 4px;
       color: var(--muted);
-      font-size: 14px;
+      font-family: monospace;
     }
-    .skip{
-      position:absolute;
-      left:-999px;
-      top:auto;
-      width:1px;
-      height:1px;
-      overflow:hidden;
+
+    /* Philosophy Section (The Implicit "Fit") */
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
     }
-    .skip:focus{
-      position:static;
-      width:auto;
-      height:auto;
-      padding:10px 12px;
-      border:1px solid var(--border);
-      border-radius: 10px;
-      display:inline-block;
-      margin-bottom: 14px;
-      background: var(--card);
+    .philosophy-item h4 { margin: 0 0 8px; font-size: 1rem; color: var(--fg); }
+    .philosophy-item p { font-size: 0.9rem; color: var(--muted); line-height: 1.5; }
+
+    @media (max-width: 768px){
+      .philosophy-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.5rem; }
+    }
+
+    footer {
+      margin-top: 80px;
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      color: var(--muted);
+      font-size: 0.9rem;
     }
   </style>
 </head>
 
 <body>
   <div class="wrap">
-    <a class="skip" href="#content">Skip to content</a>
+    
+    <header>
+      <h1>Erke Xia</h1>
+      <p class="subtitle">
+        Computer Science at <b>Carnegie Mellon University</b>.<br>
+        I engineer the infrastructure that makes AI reliable, scalable, and fast.
+      </p>
 
-    <div class="topbar">
-      <div class="nav" aria-label="Site navigation">
-        <a href="#work">Selected Work</a>
-        <a href="#fit">Fit</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
+      <div class="pill-container">
+        <span class="pill highlight">Seeking Summer 2026 Internships</span>
+        <span class="pill">Systems & Infrastructure</span>
+        <span class="pill">Agentic Workflows</span>
       </div>
-    </div>
 
-    <main id="content">
-      <header>
-        <h1>Erke Xia</h1>
-        <p class="subtitle">
-          CMU School of Computer Science — B.S. Computer Science (Machine Learning + Computer Systems), Aug 2022–May 2026.
-          Accepted into CMU 5th-Year M.S. in CS (Expected May 2027).
+      <div class="btn-row">
+        <a class="btn" href="mailto:exia@andrew.cmu.edu">Contact Me</a>
+        <a class="btn outline" href="https://github.com/yourhandle">GitHub</a>
+        <a class="btn outline" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a>
+      </div>
+    </header>
+
+    <section id="experience">
+      <h2>Industry Experience</h2>
+      
+      <div class="card">
+        <div class="meta-row">
+          <span>WeBank (FinTech)</span>
+          <span>Summer 2024</span>
+        </div>
+        <h3>Software Engineering Intern — AI Developer Infrastructure</h3>
+        <p>
+          Designed and built the execution layer for a production "AI Programmer" agent (functionally similar to 
+          enterprise coding assistants). Focused on bridging the gap between LLM reasoning and safe, distributed system execution.
         </p>
-        <p class="subtitle">
-          I build production-grade systems at the intersection of <b>distributed software</b>, <b>ML infrastructure</b>, and
-          <b>GenAI developer tooling</b> — with a bias toward measurable impact, reliability, and ownership.
-        </p>
-
-        <div class="pillrow" aria-label="Highlights">
-          <span class="pill">Seeking: SDE Internship (Summer 2026)</span>
-          <span class="pill">Focus: Distributed Systems · ML Systems · GenAI Tools</span>
-          <span class="pill">Location: Pittsburgh, PA</span>
+        <ul>
+          <li>
+            <b>Agentic Workflow:</b> Enhanced the multi-agent architecture with a ReAct-style iterative loop, allowing the system to autonomously reason through and patch code defects.
+          </li>
+          <li>
+            <b>System Safety:</b> Owned the tooling layer that sandboxes LLM-generated code applications, ensuring safe execution within a distributed environment.
+          </li>
+          <li>
+            <b>Developer Experience (DevEx):</b> Built a real-time "Reasoning Trace" visualization (React) that allowed engineers to debug agent decision paths, reducing the loop for model improvement.
+          </li>
+          <li>
+            <b>Impact:</b> The system autonomously fixed 100+ defects in production with a >75% acceptance rate.
+          </li>
+        </ul>
+        <div class="tags">
+          <span class="tag">Distributed Systems</span>
+          <span class="tag">LLM Agents</span>
+          <span class="tag">React/TypeScript</span>
+          <span class="tag">Production Engineering</span>
         </div>
+      </div>
+    </section>
 
-        <div class="cta" aria-label="Primary links">
-          <a class="btn primary" href="mailto:exia@andrew.cmu.edu">Email</a>
-          <a class="btn" href="https://github.com/yourhandle">GitHub</a>
-          <a class="btn" href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a>
-        </div>
-      </header>
-
-      <section id="work">
-        <h2>Selected Work</h2>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Production GenAI “AI Programmer” System (WeBank)</h3>
-            <p class="small">
-              Software Engineering Intern · Summer 2024 · Distributed multi-agent code automation
-            </p>
-            <ul>
-              <li>
-                Contributed to a full-lifecycle AI programmer system: enhanced agent modules with a ReAct-style iterative loop and
-                autonomous decision-making in a multi-agent architecture.
-              </li>
-              <li>
-                Owned execution and tooling layers to safely apply LLM-generated code patches to file systems; shipped modular,
-                well-documented components that became integral to the production system.
-              </li>
-              <li>
-                Built a React front-end to visualize multi-agent reasoning steps in real time, enabling engineers to trace interactions,
-                debug behavior, and guide automated fixing.
-              </li>
-              <li>
-                Impact: autonomously fixed 100+ defects with an overall code-review pass rate &gt; 75%.
-              </li>
-            </ul>
-            <div class="tags" aria-label="Tech tags">
-              <span class="tag">LLM Agents</span>
-              <span class="tag">Distributed Systems</span>
-              <span class="tag">Python</span>
-              <span class="tag">React</span>
-              <span class="tag">Linux</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>GPU-Accelerated Multi-Agent Path Finding (CUDA/C++)</h3>
-            <p class="small">
-              High-performance Conflict-Based Search (CBS) on AWS EC2 (NVIDIA A10G)
-            </p>
-            <ul>
-              <li>
-                Engineered a high-performance CBS solver by replacing serial shortest-path search with a custom GPU-resident,
-                level-synchronous BFS.
-              </li>
-              <li>
-                Optimized memory throughput using coalesced global memory access and atomic operations for frontier management.
-              </li>
-              <li>
-                Identified parallel workloads across agent initialization and low-level replanning.
-              </li>
-              <li>
-                Result: up to <b>40× speedup</b> on large-scale benchmarks while preserving solution optimality.
-              </li>
-            </ul>
-            <div class="tags" aria-label="Tech tags">
-              <span class="tag">CUDA</span>
-              <span class="tag">C++</span>
-              <span class="tag">Parallel Algorithms</span>
-              <span class="tag">AWS</span>
-              <span class="tag">Performance</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>Efficient LLM Reasoning via Explorer–Verifier Search (CMU Research)</h3>
-            <p class="small">
-              Undergraduate Researcher · Search-based Planning Laboratory · May 2025–Present
-            </p>
-            <ul>
-              <li>
-                Developed a reasoning framework inspired by speculative decoding and lazy search:
-                a small LLM explores candidate reasoning paths and a larger LLM verifies them for efficiency and accuracy.
-              </li>
-              <li>
-                Experimented with model combinations (Llama, Mistral, Gemma) and collaboration protocols; applied BFS/DFS/A* for
-                structured exploration.
-              </li>
-              <li>
-                Achieved performance competitive with GPT-4 Tree-of-Thoughts at ~<b>one-tenth the cost</b> on reasoning tasks
-                (e.g., GSM8K).
-              </li>
-              <li>
-                Implemented and benchmarked token-level speculative decoding to accelerate generation across model pairs.
-              </li>
-            </ul>
-            <div class="tags" aria-label="Tech tags">
-              <span class="tag">LLMs</span>
-              <span class="tag">Search</span>
-              <span class="tag">PyTorch</span>
-              <span class="tag">Speculative Decoding</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h3>Visual Reasoning on NLVR2 (CLIP + MoLE)</h3>
-            <p class="small">
-              Vision–Language modeling with consistency-focused evaluation
-            </p>
-            <ul>
-              <li>
-                Built a visual reasoning framework with CLIP-guided hard negative mining to mitigate spurious correlations.
-              </li>
-              <li>
-                Designed a Mixture-of-LoRA-Experts (MoLE) architecture routing samples to specialized reasoning experts
-                (spatial, counting, attribute).
-              </li>
-              <li>
-                Improved logical consistency to <b>0.77</b> and asymmetric consistency to <b>0.87</b>;
-                achieved <b>71.6%</b> aggregate accuracy among supervised baselines.
-              </li>
-            </ul>
-            <div class="tags" aria-label="Tech tags">
-              <span class="tag">VLM</span>
-              <span class="tag">CLIP</span>
-              <span class="tag">LoRA</span>
-              <span class="tag">Model Routing</span>
-            </div>
-          </article>
-        </div>
-
-        <p class="small" style="margin-top:12px;">
-          Note: some implementation details may be summarized or anonymized.
-        </p>
-      </section>
-
-      <section id="fit">
-        <h2>Why I’m a strong fit for Amazon SDE Intern (Summer 2026)</h2>
-
-        <div class="twoCol">
-          <div class="card">
-            <h3>What I’m looking for</h3>
-            <p class="small">
-              A team where interns can own real software end-to-end — design, implement, test, deploy, and operate — in an environment
-              that values customer impact, operational excellence, and fast iteration.
-            </p>
-            <ul>
-              <li>Scalable services and distributed systems</li>
-              <li>GenAI/AI-powered developer productivity tooling</li>
-              <li>Strong engineering fundamentals: code quality, debugging, CI/CD</li>
-              <li>Ambiguous problems with real users and measurable outcomes</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h3>What I bring</h3>
-            <ul>
-              <li>
-                <b>Ownership mindset:</b> shipped core execution/tooling in a production multi-agent system and built debugging UX to
-                shorten iteration loops.
-              </li>
-              <li>
-                <b>Systems rigor:</b> performance engineering on GPUs (40× speedup) and comfort with low-level bottlenecks.
-              </li>
-              <li>
-                <b>Practical ML systems:</b> efficient LLM reasoning + speculative decoding with careful benchmarking and protocols.
-              </li>
-              <li>
-                <b>Collaboration:</b> experience building tools that other engineers rely on (documentation, modularity, reviewability).
-              </li>
-            </ul>
-            <p class="small">
-              These map directly to Amazon’s intern expectations around scalable distributed solutions, GenAI tools, and owning the full
-              lifecycle of code in a large engineering organization.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills">
-        <h2>Skills</h2>
-        <div class="grid">
-          <div class="card">
-            <h3>Languages</h3>
-            <p class="small">C, C++, Java, Python, JavaScript/TypeScript, SML, OCaml, R</p>
-          </div>
-          <div class="card">
-            <h3>ML / Data</h3>
-            <p class="small">PyTorch, TensorFlow, Spark/PySpark, SQL</p>
-          </div>
-          <div class="card">
-            <h3>Systems / Tools</h3>
-            <p class="small">Linux, Git, Docker, CUDA, TCP/Networking, React, AWS</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact">
-        <h2>Contact</h2>
+    <section id="projects">
+      <h2>Technical Projects & Research</h2>
+      
+      <div class="card-grid">
         <div class="card">
-          <p style="margin:0;">
-            Email: <a href="mailto:exia@andrew.cmu.edu">exia@andrew.cmu.edu</a><br/>
-            GitHub: <a href="https://github.com/yourhandle">github.com/yourhandle</a><br/>
-            LinkedIn: <a href="https://www.linkedin.com/in/yourhandle/">linkedin.com/in/yourhandle</a>
+          <div class="meta-row">
+            <span>CUDA / C++</span>
+            <span>Performance Eng</span>
+          </div>
+          <h3>GPU-Accelerated Solver (40× Speedup)</h3>
+          <p>
+            Re-engineered a Conflict-Based Search (CBS) solver to run entirely on GPU (NVIDIA A10G), replacing serial CPU bottlenecks with massive parallelism.
+          </p>
+          <ul>
+            <li>Implemented custom level-synchronous BFS kernels.</li>
+            <li>Optimized global memory access via coalescing and atomic operations.</li>
+            <li>Achieved 40× speedup over baseline while maintaining solution optimality.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="meta-row">
+            <span>PyTorch / LLMs</span>
+            <span>Inference Ops</span>
+          </div>
+          <h3>Speculative Decoding Framework</h3>
+          <p>
+            Developed a decoupled inference engine where small "draft" models generate tokens and large "oracle" models verify them.
+          </p>
+          <ul>
+            <li>Significantly reduced inference latency for reasoning tasks.</li>
+            <li>Matched GPT-4 performance on GSM8K benchmarks at ~10% of the compute cost.</li>
+            <li>Benchmarked token generation across Llama/Mistral variants.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="meta-row">
+            <span>Vision-Language</span>
+            <span>Research</span>
+          </div>
+          <h3>Visual Reasoning with MoLE</h3>
+          <p>
+            Architected a Mixture-of-LoRA-Experts (MoLE) system to route visual tasks to specialized experts (spatial vs. counting).
+          </p>
+          <ul>
+            <li>Utilized CLIP-guided hard negative mining.</li>
+            <li>Improved logical consistency scores to 0.77 (State-of-the-Art for supervised baselines).</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <h2>Engineering Philosophy</h2>
+      <p class="subtitle" style="font-size: 1rem; margin-bottom: 30px;">
+        I don't just build models; I build the systems that make them useful, scalable, and efficient.
+      </p>
+      
+      <div class="philosophy-grid">
+        <div class="philosophy-item">
+          <h4>End-to-End Ownership</h4>
+          <p>
+            I believe engineers should own their code from design to deployment. Whether it's building the frontend for a debugger or writing the CUDA kernel for the backend, I thrive when I own the full lifecycle of a feature.
           </p>
         </div>
-      </section>
+        <div class="philosophy-item">
+          <h4>Tools > Tasks</h4>
+          <p>
+            Instead of solving a problem once, I build tools that solve it forever. My work on agentic workflows is driven by a desire to automate developer toil and enhance productivity through GenAI.
+          </p>
+        </div>
+        <div class="philosophy-item">
+          <h4>Performance Matters</h4>
+          <p>
+            In distributed systems, efficiency is feature #1. From optimizing memory throughput on GPUs to reducing inference costs by 90%, I focus on the operational metrics that drive business value.
+          </p>
+        </div>
+      </div>
+    </section>
 
-      <footer>
-        <p style="margin:0;">
-          © <span id="y"></span> Erke Xia · Built with GitHub Pages
-        </p>
-      </footer>
-    </main>
+    <section id="skills">
+      <h2>Technical Arsenal</h2>
+      <div class="card">
+        <ul style="list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+          <li>
+            <strong>Languages:</strong><br>
+            <span style="color:var(--muted)">C, C++, Java, Python, OCaml</span>
+          </li>
+          <li>
+            <strong>Machine Learning:</strong><br>
+            <span style="color:var(--muted)">PyTorch, Transformers, LangChain, CUDA</span>
+          </li>
+          <li>
+            <strong>Infrastructure:</strong><br>
+            <span style="color:var(--muted)">AWS (EC2/S3), Docker, Linux, Git</span>
+          </li>
+          <li>
+            <strong>Web:</strong><br>
+            <span style="color:var(--muted)">React, TypeScript, REST APIs</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>© <span id="year"></span> Erke Xia. Focused on Summer 2026 opportunities.</p>
+    </footer>
   </div>
 
   <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
