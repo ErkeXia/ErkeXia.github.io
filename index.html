@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name</title>
+  <meta name="description" content="One-page portfolio: projects, resume, contact." />
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin: 0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 48px 20px; }
+    header { display: flex; gap: 16px; justify-content: space-between; align-items: baseline; flex-wrap: wrap; }
+    nav a { margin-right: 14px; text-decoration: none; opacity: .85; }
+    nav a:hover { opacity: 1; text-decoration: underline; }
+    h1 { font-size: 40px; line-height: 1.1; margin: 0 0 8px; }
+    .tagline { margin: 0 0 18px; opacity: .85; }
+    .btns a {
+      display: inline-block; padding: 10px 14px; border: 1px solid currentColor;
+      border-radius: 10px; text-decoration: none; margin-right: 10px; margin-top: 8px;
+    }
+    section { margin-top: 44px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .card { border: 1px solid rgba(127,127,127,.35); border-radius: 14px; padding: 16px; }
+    .card h3 { margin: 0 0 6px; }
+    .meta { font-size: 14px; opacity: .8; margin: 6px 0 0; }
+    footer { margin-top: 52px; opacity: .75; font-size: 14px; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: .95em; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Your Name</h1>
+        <p class="tagline">CS @ CMU · ML + Systems · Building ______</p>
+      </div>
+      <nav>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <div class="btns">
+      <a href="resume.pdf">Resume</a>
+      <a href="https://github.com/yourhandle">GitHub</a>
+      <a href="https://www.linkedin.com/in/yourhandle/">LinkedIn</a>
+    </div>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Project Title</h3>
+          <p>1–2 sentences: what problem, what you built, why it matters.</p>
+          <p class="meta"><b>Tech:</b> Python, PyTorch, AWS</p>
+          <p class="meta">
+            <a href="https://github.com/yourhandle/project">Code</a> ·
+            <a href="https://demo-link.com">Demo</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Project Title</h3>
+          <p>Include a result if you can (speedup, accuracy, users, etc.).</p>
+          <p class="meta"><b>Tech:</b> OCaml, Compiler IR, SSA</p>
+          <p class="meta">
+            <a href="https://github.com/yourhandle/project2">Code</a>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Project Title</h3>
+          <p>One strong line: “Built X that does Y; improved Z by 30%.”</p>
+          <p class="meta"><b>Tech:</b> TypeScript, Node.js</p>
+          <p class="meta">
+            <a href="https://github.com/yourhandle/project3">Code</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>
+        3–5 lines. What you’re into, what you’re looking for (internship/research),
+        and what kinds of problems you like. Keep it concrete.
+      </p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Email: <a href="mailto:you@email.com">you@email.com</a><br/>
+        (Optional) Calendly: <a href="https://calendly.com/yourhandle">calendly.com/yourhandle</a>
+      </p>
+    </section>
+
+    <footer>
+      <p>© <span id="y"></span> Your Name · Built with GitHub Pages</p>
+    </footer>
+  </div>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
